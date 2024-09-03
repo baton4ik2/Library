@@ -81,8 +81,9 @@ public class BooksController {
     @PostMapping(value = "/{id}/cover", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> uploadCover(@PathVariable Long id,
                                               @RequestParam MultipartFile cover) throws IOException {
-        if (cover.getSize() > 1024 * 1024 * 500) {
-            return ResponseEntity.badRequest().body("File is too big. Max file size is 500MB");
+        int maxFileSize = 1024 * 1024 * 500;
+        if (cover.getSize() > maxFileSize) {
+            return ResponseEntity.badRequest().body("File is too big. Max file size is " + maxFileSize + " MB");
         }
 
         bookCoverService.uploadCover(id, cover);
