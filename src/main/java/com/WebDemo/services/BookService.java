@@ -20,7 +20,7 @@ public class BookService {
         return bookRepository.save(book);
     }
 
-    public Book findBook(long id) {
+    public Book findBook(Long id) {
         return bookRepository.findById(id).get();
     }
 
