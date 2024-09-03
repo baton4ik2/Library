@@ -69,7 +69,7 @@ public class BookCoverService {
             ByteArrayOutputStream baos = new ByteArrayOutputStream()){
             BufferedImage image = ImageIO.read(bis);
 
-            int height = image.getHeight() / (image.getWidth() / 100);
+            int height = image.getHeight() / (image.getWidth() / 50);
             BufferedImage preview = new BufferedImage(100, height, image.getType());
             Graphics2D graphics = preview.createGraphics();
             graphics.drawImage(image, 0, 0, 100, height, null);
